@@ -7,6 +7,7 @@ const Home = () => {
     // Update the setBlogs State with the data ---------> STEP 2
     const [blogs, setBlogs] = useState( null );
     const [isPending, setIsPending] = useState( true );
+    const [error, setError] = useState( null )
 
 
     // Use Effect Function to fecth the data from the blogs API -------> STEP 1
@@ -14,6 +15,10 @@ const Home = () => {
         setTimeout(() => {
             fetch('http://localhost:8000/blogs')
             .then(res => {
+                if (!res.ok) {
+                    throw Error('Failed to Fetch the data')
+                }
+
                 return res.json();
             })
             .then(data => {
@@ -21,6 +26,13 @@ const Home = () => {
                 // Update setBlogs with the fetched data  
                 setBlogs(data)
                 setIsPending(false)
+                setError(null)
+            })
+            //  Add Error Catch Msg
+            .catch(err => {
+                setIsPending(false)
+                setError(err.message)
+                setBlogs(null)
             })
         }, 1000)
     }, [])
@@ -28,8 +40,10 @@ const Home = () => {
 // render the 
     return (
         <div className="home">
-            {/* Use Props to pass data from Parent to child component () */}
 
+            {error && <div>Sorry, seems like the page is down...</div>}
+
+            {/* Display the loading state */}
             {isPending && <div>Loading...</div>}
 
             {/* Add Blogs Prop */}
