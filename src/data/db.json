@@ -1,0 +1,16 @@
+{
+    "blogs": [
+        {
+            "title": "My first blog",
+            "body": "The Techknowlogy project will be an online app that will ensure the udents an educative hub where different forms of academic works like PDF files, links and Documents can be accessed online on any browser or academic database.",
+            "author": "Elijah",
+            "id": 1
+        },
+        {
+            "title": "My Second blog",
+            "body":"The Techknowlogy project will be an online app that will ensure the udents an educative hub where different forms of academic works like PDF files, links and Documents can be accessed online on any browser or academic database.",
+            "author": "Victorious",
+            "id": 2
+        }
+    ]
+}

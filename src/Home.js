@@ -1,25 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BlogList from "./BlogList";
 
 
 const Home = () => {
 
-    const [blogs, setBlogs] = useState([
-        {title: 'Software Engineering', body: 'lorem ipsum...', author: 'Peter', id: 1},
-        {title: 'Database and Web Dev', body: 'lorem ipsum...', author: 'Elijah', id: 2},
-        {title: 'Java Programming', body: 'lorem ipsum...', author: 'Mapalo', id: 3}
-    ]);
+    // Update the setBlogs State with the data ---------> STEP 2
+    const [blogs, setBlogs] = useState( null );
 
 
+    // Use Effect Function to fecth the data from the blogs API -------> STEP 1
+    useEffect(() => {
+        fetch('http://localhost:8000/blogs')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data)
+                // Update setBlogs with the fetched data  
+                setBlogs(data)
+            })
+    }, [])
+
+// render the 
     return (
         <div className="home">
-            {blogs.map((blog) => (
-                <div className="blog-preview" key={blog.id}>
-                    <h2>{ blog.title }</h2>
-                    <p>Written By { blog.author }</p>
-                </div>
-            ))}
+            {/* Use Props to pass data from Parent to child component () */}
+            {/* Add Blogs Prop */}
+            { blogs && <BlogList blogs={blogs}/>}
         </div>
     );
 }
+
+
+// Code to run JSON Server
+// npx json-server --watch data/db.json --port 8000
 
 export default Home;
