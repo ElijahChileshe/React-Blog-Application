@@ -6,11 +6,13 @@ const Home = () => {
 
     // Update the setBlogs State with the data ---------> STEP 2
     const [blogs, setBlogs] = useState( null );
+    const [isPending, setIsPending] = useState( true );
 
 
     // Use Effect Function to fecth the data from the blogs API -------> STEP 1
     useEffect(() => {
-        fetch('http://localhost:8000/blogs')
+        setTimeout(() => {
+            fetch('http://localhost:8000/blogs')
             .then(res => {
                 return res.json();
             })
@@ -18,13 +20,18 @@ const Home = () => {
                 console.log(data)
                 // Update setBlogs with the fetched data  
                 setBlogs(data)
+                setIsPending(false)
             })
+        }, 1000)
     }, [])
 
 // render the 
     return (
         <div className="home">
             {/* Use Props to pass data from Parent to child component () */}
+
+            {isPending && <div>Loading...</div>}
+
             {/* Add Blogs Prop */}
             { blogs && <BlogList blogs={blogs}/>}
         </div>
