@@ -11,8 +11,13 @@ const useFetch = (url) => {
 
     // Use Effect Function to fecth the data from the blogs API -------> STEP 1
     useEffect(() => {
+
+        // Abort Controller
+        const abortCont = new AbortController();
+
         setTimeout(() => {
-            fetch(url)
+            // Add Abort Controller
+            fetch(url, { signal: abortCont.signal })
             .then(res => {
                 if (!res.ok) {
                     throw Error('Failed to Fetch the data')
@@ -29,11 +34,20 @@ const useFetch = (url) => {
             })
             //  Add Error Catch Msg
             .catch(err => {
-                setIsPending(false)
-                setError(err.message)
-                setData(null)
+
+                if (err.name === 'AbortError'){
+                    console.log('Fetch Aborted');
+                } else {
+                    setIsPending(false)
+                    setError(err.message)
+                    setData(null)
+                }
             })
-        },)
+        }, 1000)
+
+        // Add Clean Up Function
+        return () => abortCont.abort()
+
     }, [url]);
 
     return { data, isPending, error }
