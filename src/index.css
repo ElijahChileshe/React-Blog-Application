@@ -6,6 +6,10 @@
   color: #333;
 }
 
+.blog-list {
+  background-color: lavender;
+}
+
 .navbar{
   padding: 20px;
   display: flex;
@@ -70,6 +74,15 @@
 
 .blog-details div{
   margin: 20px 0;
+}
+
+.blog-details button {
+  background: #F0564D;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 

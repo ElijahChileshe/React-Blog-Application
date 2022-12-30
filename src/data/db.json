@@ -1,28 +1,22 @@
 {
   "blogs": [
     {
-      "title": "My first blog",
-      "body": "The Techknowlogy project will be an online app that will ensure the udents an educative hub where different forms of academic works like PDF files, links and Documents can be accessed online on any browser or academic database.",
+      "title": "Types of Hackers",
+      "body": " Script kiddy\n– a user who lacks the skills of a typical hacker. Rather, he downloads\nhacking utilities and uses those utilities to launch attacks, rather than writing his own programs\n\n Computer security hacker\n– knowledgeable about the technical aspects of computer and network security systems. For example, this person might attempt to attack a system protected by an IPS by fragmenting malicious traffic in a way\nthat would go undetected by the IPS.\n\nBlack hat hacker\n– also known as a “cracker,” uses his skills for unethical reasons (for example, to steal funds).\n\n\n",
       "author": "Elijah",
       "id": 1
     },
     {
-      "title": "My Second blog",
-      "body": "The Techknowlogy project will be an online app that will ensure the udents an educative hub where different forms of academic works like PDF files, links and Documents can be accessed online on any browser or academic database.",
-      "author": "Victorious",
+      "title": "Intrusion Detection Systems (IDS)",
+      "body": "Intrusion Detection Systems are Systems that look for attack signatures, which are basically specific patterns or Traffic Patterns that usually indicate malicious or suspicious activities on your Network.\n When some suspicious activity is noticed, they\nimmediately send an ALERT Message to the Network\nadministrator. The IDS usually know the normal behavior of a Network. E.G. Snort\n",
+      "author": "Lanzi",
       "id": 2
     },
     {
-      "title": "Reverse Engineering",
-      "body": "Ggof",
-      "author": "Lanzi",
-      "id": 3
-    },
-    {
-      "title": "North Pole",
-      "body": "HHHHHHH",
+      "title": "Software Development Models",
+      "body": "Waterfall Model\nThrough all development stages (analysis, design, coding, testing, deployment), the process moves in a cascade mode. Each stage has concrete deliverables and is strictly documented. The next stage cannot start before the previous one is fully completed.\n\nIncremental and Iterative model\nThe development process based on the Incremental model is split into several iterations (“Lego-style” modular software design is required!). New software modules are added in each iteration with no or little change in earlier added modules. The development process can go either sequentially or in parallel. Parallel development adds to the speed of delivery, while many repeated cycles of sequential development can make the project long and costly.\n\nSpiral model\nThe Spiral model puts focus on thorough risk assessment. Thus, to reap the benefits of the model to the fullest, you’ll need to engage people with a strong background in risk evaluation. A typical Spiral iteration lasts around 6 months and starts with 4 important activities - thorough planning, risk analysis, prototypes creation, and evaluation of the previously delivered part. Repeated spiral cycles seriously extend project timeframes.\n\n",
       "author": "elijah",
-      "id": 4
+      "id": 3
     }
   ]
 }
